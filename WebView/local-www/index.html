@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Page</title>
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+<body><h1>General</h1>
+webview_language = <font color='red'>No GET parameter <i>webview_language</i> received</font><h1>Links</h1>
+<a href='https://www.google.com'>Link 1 (default)</a><br>
+<a href='https://www.google.com' target="_blank">Link 2 (target="_blank")</a><br>
+<a href='https://www.google.com' target="_self">Link 3 (target="_self")</a><br>
+<a href='#' onClick="window.location.href='https://www.google.com';">Link 4 (window.location.href)</a><br>
+<a href='#' onClick="window.location='https://www.google.com';">Link 5 (window.location)</a><br>
+<a href='#' onClick="top.location.href='https://www.google.com';">Link 6 (top.location.href)</a><br>
+<a href='#' onClick="top.location='https://www.google.com';">Link 7 (top.location)</a><br>
+<a href='#' onClick="window.open('https://www.google.com');">Link 8 (window.open)</a><br>
+<h1>File Upload</h1>
+<input type="file" name="file" multiple="multiple">
+<h1>Geolocation</h1>
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+<h1>Special Links</h1>
+<a href="mailto:test@example.org">mailto:test@example.org</a><br>
+<a href="tel:+4915118956490">tel:</a><br>
+<a href="sms:+4915118956490">sms:</a><br>
+<a href="geo:">geo:</a><br>
+<a href="whatsapp://">whatsapp://</a><br>
+<h1>Downloader API</h1>
+<a href="http://www.pdf995.com/samples/pdf.pdf">Link to a .pdf file</a><br>
+<a href="test.ics">Link to a .ics iCal file</a><br>
+<a href="https://www.w3schools.com/html/horse.mp3">Link to a .mp3 file</a><br>
+<a href="https://s3platform.jrc.ec.europa.eu/documents/20182/262240/JRC+workshop_Irujo.pptx">Link to a .pptx file</a><br>
+<a href="http://muc2019.mensch-und-computer.de/wp-content/uploads/sites/4/2018/06/Demos_Supplement_English.docx">Link to a .docx file</a><br>
+<a href="https://www.seattle.gov/Documents/Departments/SDCI/Resources/Stats/2012Feb5k.xlsx">Link to a .xlsx file</a><br>
+<a href="savethisimage://?url=https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png">Image Saving API</a>
+<h1>Reset API</h1>
+<a href="reset://">Reset</a>
+<h1>Sharing Dialog API</h1>
+<a href="shareapp://">Share this app (No Text; Old API)</a><br>
+<a href="shareapp://sharetext?=TEST TEST TEST TEST www.webviewgold.com">Share this app (With TEST TEST TEST text, new API)</a>
+<h1>In-App Purchases (New 2020 API)</h1>
+<a href="inapppurchase://?package=purchase_item_one&successful_url=https://www.google.com">Buy In-App Purchase purchase_item_one (+ keep AdMob)</a><br>
+<a href="inapppurchase://?package=purchase_item_one&disableadmob=true&successful_url=https://www.yahoo.com">Buy In-App Purchase purchase_item_one (+ disable AdMob)</a>
+<br>
+<a href="inapppurchase://?package=purchase_item_two&successful_url=https://www.google.com">Buy In-App Purchase purchase_item_two (+ keep AdMob)</a><br>
+<a href="inapppurchase://?package=purchase_item_two&disableadmob=true&successful_url=https://www.yahoo.com">Buy In-App Purchase purchase_item_two (+ disable AdMob)</a>
+<br>
+<a href="inapppurchase://?package=purchase_item_three&successful_url=https://www.google.com">Buy In-App Purchase purchase_item_three (+ keep AdMob)</a><br>
+<a href="inapppurchase://?package=purchase_item_three&disableadmob=true&successful_url=https://www.yahoo.com">Buy In-App Purchase purchase_item_three (+ disable AdMob)</a>
+<h1>In-App Purchases (Old 2019 API)</h1>
+<a href="inapppurchase://?successful_url=https://www.google.com">Buy In-App Purchase (+ keep AdMob)</a><br>
+<a href="inapppurchase://?disableadmob=true&successful_url=https://www.yahoo.com">Buy In-App Purchase (+ disable AdMob)</a>
+<h1>In-App Subscription (New 2020 API)</h1>
+<a href="inappsubscription://?package=sub_one_month&successful_url=https://www.google.com&expired_url=https://www.yahoo.com">Subscribe to In-App Subscription sub_one_month</a><br>
+<a href="inappsubscription://?package=sub_three_month&successful_url=https://www.google.com&expired_url=https://www.yahoo.com">Subscribe to In-App Subscription sub_three_month</a><br>
+<a href="inappsubscription://?package=sub_one_year&successful_url=https://www.google.com&expired_url=https://www.yahoo.com">Subscribe to In-App Subscription sub_one_year</a>
+<h1>In-App Subscription (Old 2019 API)</h1>
+<a href="inappsubscription://?successful_url=https://www.google.com&expired_url=https://www.yahoo.com">Subscribe to In-App Subscription</a>
+<h1>Push API</h1>
+<a href="registerpush://">Register for Push</a><br>
+<a href="sendlocalpushmsg://push.send?s=5=msg!Test&!#TestButton">Send Local Push in 5 Seconds</a>
+<h1>Trigger Loading Sign</h1>
+<a href="spinneron://">Show</a><br>
+<a href="spinneroff://">Hide</a>
+<br>
+<a href="screenshot://">Hide</a>
+<h1>QR Code Scanner API</h1>
+<a href="qrcode://">Open QR Code Scanner</a><br>
+<h1>Get UDID</h1>
+<a href="get-uuid://">Get UDID</a><br>
+<a href="#" onClick="alert(uuid);">Show UDID</a><br>
+
+<a href="user-disable-tracking://">Get tracking</a><br>
+<a href="#" onClick="alert(trackingDisabled);">Show tracking status</a><br>
+</body>
+</html>
